@@ -1,0 +1,216 @@
+1. > django-admin startproject moja_strona  
+2. \moja_strona> tree /F
+3. \moja_strona> py manage.py migrate  
+4. \moja_strona> py manage.py runserver
+5. \moja_strona> py manage.py startapp olczyk_innowacje
+6. \moja_strona\ mkdir templates
+7. \moja_strona\settings.py -  "DIRS": [BASE_DIR / "templates"]
+8. Making file: templates\home.html:
+<h1> Moja strona o mnie</h1>
+9. olczyk_innowacje\views.py - 
+from django.shortcuts import render
+def home_page_view(request): # new
+ return render(request, "home.html")
+10. Updating the views, both the project-level urls.py file, which serves as our
+website’s entry point, and the app-specific urls.py file, which has the
+specific route and view for the home page.
+In moja_strona\urls.py:
+- include update: from django.urls import path, include
+- urlpatterns update: path("", include("olczyk_innowacje.urls"))
+11. Making file in: \olczyk_innowacje\urls.py:
+from django.urls import path
+from .views import home_page_view
+#Black off:
+# fmt: off
+urlpatterns = [
+    path("", home_page_view)
+]
+#Black on:
+# fmt: on
+12. Making about.html page:
+ - random content for that page: 
+in the file: olczyk_innowacje/views.py
+
+class AboutPageView(TemplateView):
+ template_name = "about.html"
+ def get_context_data(self, **kwargs): # new
+ context = super().get_context_data(**kwargs)
+ context["contact_address"] = "Warszawa"
+ context["phone_number"] = "my phone nymber"
+ return context
+
+13. Showing content in about.html file:
+
+<h1>Company About Page</h1>
+<p>The company address is {{ contact_address }} and the phone number is
+ {{ phone_number }}.</p>
+14. Making the same content appears on every page:
+ - make base.html file and insert:
+<!-- templates/base.html -->
+<header>
+<a href="/">Home</a> |
+<a href="/about">About</a>
+</header>
+{% block content %}{% endblock %}
+15. Updating home.html:
+
+{% extends "base.html" %}
+{% block content %}
+<h1>My Homepage</h1>
+<p>The current date and time is: {% now "DATETIME_FORMAT" %}</p>
+<p>There are {{ inventory_list|length }} items of inventory.
+<ul>
+ {% for item in inventory_list %}
+<li>{{ item }}</li>
+ {% endfor %}
+</ul>
+<p>{{ greeting| title }}</p>
+{% comment %}Add more content here!{% endcomment %}
+{% endblock %}
+
+16. And about.html:
+
+{% extends "base.html" %}
+{% block content %}
+<h1>My About Page</h1>
+<p>My address is {{ contact_address }} and the phone number is
+ {{ phone_number }}.</p>
+{% endblock %}
+
+17. To have a canonical location for logic. In
+this case, I want to reference a URL and its associated view once and only
+once. To do that, I can add a name to our URLs:
+in file: olczyk_innowacje/urls.py I add name="about" and name="home"
+from django.urls import path
+from .views import home_page_view, AboutPageView
+urlpatterns = [
+ path("about/", AboutPageView.as_view(), name="about"),
+ path("", home_page_view, name="home"),
+]
+
++ update base.html file:
+<header>
+<a href="{% url 'home' %}">Home</a> |
+<a href="{% url 'about' %}">About</a>
+</header>
+{% block content %}{% endblock %}
+
+
+18. Making send mail to me form and contact content:
+18.1 Adding dev config:
+# olczyk_innowacje/settings.py
+EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
+DEFAULT_FROM_EMAIL = "admin@example.com"
+NOTIFY_EMAIL = "admin@example.com"
+18.2 Update olczyk_innowacje/urls.py:
+
+from .views import ContactView, SuccessView
+
+urlpatterns = [
+    path("contact/", ContactView.as_view(), name="contact"),
+    path("success/", SuccessView.as_view(), name="success"),
+
+18.3 Making forms.py
+
+from django import forms
+
+
+class ContactForm(forms.Form):
+    email = forms.EmailField(
+        widget=forms.TextInput(attrs={"placeholder": "Your e-mail"})
+    )
+    subject = forms.CharField(widget=forms.TextInput(attrs={"placeholder": "Subject"}))
+    message = forms.CharField(
+        widget=forms.Textarea(attrs={"placeholder": "Your message"})
+    )
+18.4 Update olczyk_innowacje/views.py:
+
+# for email form onfiguration
+
+from django.conf import settings
+from django.core.mail import send_mail
+from django.shortcuts import reverse
+from .forms import ContactForm
+
+# for email config
+class SuccessView(TemplateView):
+    template_name = "success.html"
+
+
+class ContactView(FormView):
+    form_class = ContactForm
+    template_name = "contact.html"
+
+    def get_success_url(self):
+        return reverse("success")
+
+    def form_valid(self, form):
+        email = form.cleaned_data.get("email")
+        subject = form.cleaned_data.get("subject")
+        message = form.cleaned_data.get("message")
+
+        full_message = f"""
+        Received message below from {email}, {subject}
+        ________________________
+
+        {message}
+        """
+
+        send_mail(
+            subject="Received contact form submission",
+            message=full_message,
+            from_email=settings.DEFAULT_FROM_EMAIL,
+            recipient_list=[settings.NOTIFY_EMAIL],
+        )
+
+        return super().form_valid(form)
+18.5 Making file contact.html
+
+<h1>Contact Us</h1>
+
+<form method="post">
+  {% csrf_token %}
+  {{ form }}
+  <div>
+    <button type="submit">Send</button>
+  </div>
+</form>
+
+18.6 Making file success.html
+
+<h1>Message sent successfully!</h1>
+<p>I will get back to you shortly.</p>
+
+18.7 Checking:  py manage.py runserver (http://localhost:8000/contact and …/success)
+
+18.8 Updating base.html with "contact":
+<!-- templates/base.html -->
+<header>
+    <a href="{% url 'home' %}">Home</a> |
+    <a href="{% url 'about' %}">About</a>
+    <a href="{% url 'contact' %}">Contact</a>
+</header>
+{% block content %}{% endblock %}
+
+18.9 Updating contact.html and success.html with:
+{% extends "base.html" %}
+{% block content %}
+.
+.
+.
+{% endblock %}
+
+19. Acquiring password from gmail.com
+19.1 Setup SMTP in settings.py:
+
+EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
+DEFAULT_FROM_EMAIL = "g.olczyk.priv@gmail.com"
+NOTIFY_EMAIL = "g.olczyk@yahoo.com"
+
+EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
+EMAIL_HOST = "smtp.gmail.com"
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = "g.olczyk.priv@gmail.com"
+EMAIL_HOST_PASSWORD = "password_text"  # 16-char password from gmail.com config site
+

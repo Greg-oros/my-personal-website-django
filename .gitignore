@@ -21,3 +21,4 @@ ENV/
 
 # Inne
 .DS_Store
+.env

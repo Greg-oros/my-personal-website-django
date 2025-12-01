@@ -213,4 +213,25 @@ EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 EMAIL_HOST_USER = "g.olczyk.priv@gmail.com"
 EMAIL_HOST_PASSWORD = "password_text"  # 16-char password from gmail.com config site
+-------------------------------------------------------------------------------------------------------------------------------
+20. Adding static folders for CSS
+21.1
+$ mkdir static
+21.2
+# settings.py
+STATIC_URL = "static/"
+STATICFILES_DIRS = [BASE_DIR / "static"] 
+21.3
+$ mkdir static/css
+21.4 Making base.css
+/* static/css/base.css */
+header a {
+color: red;
+}
+21.4 In templates/base.html adding:
+{% load static %}
+and between <head>:
+<link rel="stylesheet" href="{% static 'css/base.css' %}">
+22. Black background, stars and shooting star
+
 

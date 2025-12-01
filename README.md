@@ -78,3 +78,7 @@ Templates: contact.html, success.html
 # Author
 # Grzegorz Olczyk
 # Email: g.olczyk.priv@gmail.com
+
+# 7. Setting background
+ gravity.css / css data for twinkle stars and shooting star
+ base.html / setting classes and styles

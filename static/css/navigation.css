@@ -1,0 +1,165 @@
+/* navigation.css - MOBILE & TABLET OPTIMIZED */
+
+/* Ustawienia globalne dla Body (przeniesione z góry i dołu w jedno miejsce) */
+body {
+    /* Box-sizing musi być, żeby padding nie rozpychał szerokości */
+    box-sizing: border-box;
+
+    /* Margines górny, żeby treść nie wchodziła pod przyklejoną nawigację.
+       Na mobile może wymagać dostosowania, jeśli navbar będzie wyższy. */
+    padding-top: 90px;
+}
+
+/* Navigation Container */
+.modern-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+
+    /* FIX: Zamiast transparent, dajemy delikatne półprzezroczyste tło */
+    background-color: rgba(0, 0, 0, 0.3);
+
+    /* FIX: Efekt szkła (Blur) - kluczowy dla czytelności na tle gwiazd/treści */
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    /* Wsparcie dla Safari (iOS) */
+
+    /* Delikatna linia oddzielająca */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+
+    /* FIX: Obsługa Notcha (wcięcia) na iPhone */
+    padding-top: env(safe-area-inset-top);
+    transition: background-color 0.3s ease, padding 0.3s ease;
+}
+
+.nav-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    /* Nieco mniejszy padding pionowy dla zgrabniejszego wyglądu */
+    padding: 20px 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Navigation Links */
+.nav-links {
+    display: flex;
+    /* Startowy duży odstęp dla desktopów */
+    gap: 48px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    /* Zapobiega łamaniu się linii menu na dziwnych szerokościach */
+    flex-wrap: nowrap;
+}
+
+.nav-links li {
+    position: relative;
+    /* Centrowanie elementów w liście */
+    display: flex;
+    align-items: center;
+}
+
+.nav-links a {
+    color: rgba(255, 255, 255, 0.6);
+    text-decoration: none;
+    font-size: 18px;
+    /* Lekka korekta z 20px na 18px dla elegancji */
+    font-weight: 100;
+    letter-spacing: 1px;
+    transition: color 0.3s ease, transform 0.2s ease;
+    position: relative;
+    padding: 10px 5px;
+    /* Większe pole dotyku (hitbox) dla palców */
+    display: inline-block;
+
+    font-family: "Mona Sans", "Neue Montreal", "Inter", system-ui, sans-serif;
+    font-variation-settings: "wdth" 90, "wght" 200;
+    text-transform: uppercase;
+
+    /* Zapobiega łamaniu tekstu wewnątrz linku (np. "THOUGHT LEADERSHIP") */
+    white-space: nowrap;
+}
+
+.nav-links a:hover {
+    color: rgba(255, 255, 255, 1);
+    transform: translateY(-1px);
+    /* Mikro animacja */
+}
+
+/* Active state */
+.nav-links a.active {
+    color: rgba(255, 255, 255, 1);
+}
+
+.nav-links a.active::after {
+    /* Opcjonalnie: mała kropka pod aktywnym linkiem */
+    content: '';
+    position: absolute;
+    bottom: 5px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 4px;
+    height: 4px;
+    background: white;
+    border-radius: 50%;
+    opacity: 0.6;
+}
+
+/* ========================================= */
+/* === RESPONSIVE DESIGN === */
+/* ========================================= */
+
+/* 1. Tablety i mniejsze laptopy (max 1024px) */
+@media (max-width: 1024px) {
+    .nav-links {
+        gap: 32px;
+        /* Zmniejszamy odstęp */
+    }
+}
+
+/* 2. Telefony (max 768px) */
+@media (max-width: 768px) {
+    body {
+        /* Mniejszy padding na mobile, bo navbar jest niższy */
+        padding-top: 70px;
+    }
+
+    .nav-container {
+        padding: 15px 20px;
+        /* Zmniejszamy padding kontenera */
+    }
+
+    .nav-links {
+        gap: 20px;
+        /* Jeszcze mniejszy odstęp między linkami */
+        width: 100%;
+        justify-content: center;
+        /* Centrujemy na środku ekranu */
+    }
+
+    .nav-links a {
+        font-size: 14px;
+        /* Mniejsza czcionka */
+        letter-spacing: 0.5px;
+        padding: 8px 4px;
+        /* Dopasowanie pola dotyku */
+    }
+}
+
+/* 3. Bardzo małe telefony (np. iPhone SE, Galaxy Z Flip złożony - max 380px) */
+@media (max-width: 380px) {
+    .nav-links {
+        gap: 12px;
+        /* Minimalny bezpieczny odstęp */
+    }
+
+    .nav-links a {
+        font-size: 12px;
+        /* Mikroskopijna korekta, żeby się zmieściło w 1 linii */
+    }
+}

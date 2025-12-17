@@ -1,0 +1,394 @@
+/* about.css - ZOPTYMALIZOWANY DLA MOBILE */
+
+/* 1. Nowy układ: kolumna kart po lewej */
+.about-wrapper {
+    overflow-x: hidden;
+    min-height: 100vh;
+    /* FIX: Użycie dvh dla lepszego wsparcia mobilnego (pasek adresu) */
+    min-height: 100dvh;
+
+    padding: 60px 10% 120px;
+    box-sizing: border-box;
+
+    /* Ustawienie układu dla całej strony */
+    display: flex;
+    justify-content: flex-start;
+    /* Karty będą po lewej */
+    gap: 50px;
+}
+
+/* 2. Kontener dla wszystkich kart - zajmuje ok. 40% szerokości */
+.cards-column {
+    width: 45%;
+    min-width: 300px;
+    max-width: 500px;
+}
+
+/* 3. Kontener kart wewnątrz sekcji - układa karty w kolumnie */
+.cards-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    justify-content: flex-start;
+    flex-wrap: nowrap;
+}
+
+/* 4. Styl karty */
+.info-card {
+    /* Ustawienia oryginalne pozostają */
+    width: 100%;
+    max-width: none;
+    padding: 24px 28px;
+    position: relative;
+    overflow: hidden;
+    box-sizing: border-box;
+    /* Ważne dla paddingów */
+}
+
+.card-title {
+    text-align: left;
+    color: rgba(255, 255, 255, 1);
+    /* Poprawiłem 240 na 1 (albo 255), css używa 0-1 dla alpha lub rgb */
+    text-decoration: none;
+    font-size: 20px;
+    font-weight: 100;
+    letter-spacing: 1px;
+    transition: color 0.3s ease;
+    position: relative;
+    padding: 8px 0;
+    display: inline-block;
+
+    font-family: "Mona Sans", "Neue Montreal", "Inter", system-ui, sans-serif;
+    font-variation-settings: "wdth" 90, "wght" 200;
+}
+
+.card-summary {
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 15px;
+    line-height: 1.5;
+    font-family: "Mona Sans", "Neue Montreal", "Inter", system-ui, sans-serif;
+    font-variation-settings: "wdth" 90, "wght" 200;
+}
+
+/* 5. Usuwamy stare style tooltipa */
+.card-content,
+.card-content::after,
+.info-card:hover .card-content {
+    display: none !important;
+}
+
+/* 6. Panel odczytu (Prawa strona) */
+.reading-panel {
+    position: fixed;
+    top: 50px;
+    right: -100%;
+    /* Domyślnie schowany */
+
+    width: 40vw;
+    /* Desktop: 40% szerokości */
+    height: 90vh;
+    /* Desktop: 90% wysokości */
+
+    margin-bottom: 50px;
+    box-sizing: border-box;
+    z-index: 2147483647;
+
+    background: rgba(15, 15, 15, 0.01);
+    /* Bardzo przezroczyste tło bazowe */
+    /* Zwiększony blur dla czytelności na tle gwiazd */
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+
+    padding: 64px 56px;
+    overflow-y: auto;
+
+    /* Ramka i cień */
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 12px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.7);
+
+    transition: right 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* AKTYWNY PANEL: Desktop */
+.reading-panel:target {
+    right: 50px;
+    /* Margines z prawej na desktopie */
+}
+
+/* Krzyżyk zamykający */
+.close-panel {
+    position: absolute;
+    top: 24px;
+    right: 32px;
+    font-size: 42px;
+    /* Lekka korekta dla mobile */
+    color: white;
+    text-decoration: none;
+    line-height: 1;
+    opacity: 0.8;
+    transition: opacity 0.2s ease;
+    z-index: 10;
+    /* Zawsze na wierzchu treści panelu */
+    padding: 10px;
+    /* Większy obszar dotyku dla palca */
+}
+
+.close-panel:hover {
+    opacity: 1;
+    transform: rotate(90deg);
+}
+
+/* Dodatkowe style */
+.info-card.card-link {
+    display: block;
+    text-decoration: none;
+    color: white;
+}
+
+.info-card:hover {
+    transform: scale(1.02);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5), 0 0 15px rgba(255, 255, 255, 0.2);
+    border-color: rgba(255, 255, 255, 0.3);
+}
+
+/* TYPOGRAFIA PANELU */
+.panel-title {
+    font-size: 32px;
+    font-weight: 300;
+    margin-top: 0;
+    margin-bottom: 30px;
+    color: #fff;
+    letter-spacing: 1px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    padding-bottom: 20px;
+    font-family: "Mona Sans", "Neue Montreal", "Inter", system-ui, sans-serif;
+    word-wrap: break-word;
+    /* Zabezpieczenie przed długimi słowami na mobile */
+}
+
+.panel-text {
+    font-size: 16px;
+    line-height: 1.8;
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 24px;
+    font-weight: 300;
+    text-align: justify;
+    font-family: "Mona Sans", "Neue Montreal", "Inter", system-ui, sans-serif;
+}
+
+.panel-list {
+    margin: 20px 0 30px 10px;
+    /* Mniejszy margines na mobile */
+    padding-left: 15px;
+    border-left: 2px solid rgba(255, 255, 255, 0.3);
+}
+
+.panel-list li {
+    font-size: 16px;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.8);
+    margin-bottom: 15px;
+    list-style: none;
+}
+
+.panel-quote {
+    font-size: 18px;
+    /* Nieco mniejsza na mobile */
+    font-style: italic;
+    color: #fff;
+    margin: 30px 0;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+    border-left: 4px solid #fff;
+}
+
+.panel-quote footer {
+    display: block;
+    font-size: 14px;
+    margin-top: 10px;
+    color: rgba(255, 255, 255, 0.5);
+    font-style: normal;
+}
+
+.divider {
+    border: 0;
+    height: 1px;
+    background: rgba(255, 255, 255, 0.2);
+    margin: 40px 0;
+}
+
+.sources-section h3 {
+    font-size: 14px;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.5);
+    letter-spacing: 2px;
+    margin-bottom: 15px;
+    font-family: "Mona Sans", "Neue Montreal", "Inter", system-ui, sans-serif;
+    font-variation-settings: "wdth" 90, "wght" 200;
+}
+
+.sources-section ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sources-section li {
+    font-size: 13px;
+    line-height: 1.5;
+    color: rgba(255, 255, 255, 0.4);
+    margin-bottom: 10px;
+    padding-left: 0;
+    word-break: break-word;
+    /* Długie linki nie rozwalą widoku */
+}
+
+.sources-section a {
+    color: rgba(255, 255, 255, 0.6);
+    text-decoration: underline;
+}
+
+strong {
+    font-weight: 600;
+    color: #fff;
+}
+
+/* Suwaki */
+.reading-panel {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(255, 255, 255, 0.3) black;
+}
+
+.reading-panel::-webkit-scrollbar {
+    width: 8px;
+}
+
+.reading-panel::-webkit-scrollbar-track {
+    background: black;
+    border-radius: 0 12px 12px 0;
+}
+
+.reading-panel::-webkit-scrollbar-thumb {
+    background-color: rgba(255, 255, 255, 0.3);
+    border-radius: 4px;
+    border: 2px solid black;
+}
+
+.section-title {
+    text-align: center;
+    color: rgba(255, 255, 255, 1);
+    text-decoration: none;
+    font-size: 30px;
+    font-weight: 150;
+    letter-spacing: 1px;
+    transition: color 0.3s ease;
+    padding: 8px 0;
+    display: inline-block;
+    font-family: "Mona Sans", "Neue Montreal", "Inter", system-ui, sans-serif;
+    font-variation-settings: "wdth" 90, "wght" 200;
+}
+
+/* ========================================= */
+/* === MOBILE & TABLET OPTIMIZATION === */
+/* ========================================= */
+
+/* 1. Tablety i mniejsze laptopy (max 1024px) */
+@media (max-width: 1024px) {
+    .about-wrapper {
+        padding: 80px 5% 100px;
+        /* Zmniejszone marginesy boczne */
+        flex-direction: column;
+        /* Karty pod sobą */
+    }
+
+    .cards-column {
+        width: 100%;
+        /* Karty na całą szerokość */
+        max-width: 700px;
+        /* Ale nie za szerokie na tablecie */
+        margin: 0 auto;
+        /* Wyśrodkowanie */
+    }
+
+    .reading-panel {
+        width: 80vw;
+        /* Szerszy panel na tablecie */
+        padding: 50px 40px;
+    }
+}
+
+/* 2. Telefony (max 768px) - Apple, Samsung, Xiaomi itp. */
+@media (max-width: 768px) {
+    .about-wrapper {
+        /* Więcej miejsca u góry dla nawigacji, mniej po bokach */
+        padding: 100px 20px 80px;
+    }
+
+    .cards-column {
+        width: 100%;
+        min-width: unset;
+        /* Usuwamy sztywne 300px dla bardzo wąskich ekranów (np. Fold) */
+        max-width: 100%;
+    }
+
+    .section-title {
+        font-size: 26px;
+        /* Mniejszy tytuł sekcji */
+        text-align: left;
+        /* Tytuły do lewej na mobile wyglądają lepiej */
+        display: block;
+    }
+
+    /* --- POPRAWA PANELU CZYTANIA NA MOBILE --- */
+    .reading-panel {
+        width: 100%;
+        /* Panel na pełną szerokość */
+        height: 100%;
+        /* Pełna wysokość */
+        height: 100dvh;
+        /* Dynamiczna wysokość (omija pasek adresu przeglądarki) */
+
+        top: 0;
+        /* Zaczyna się od samej góry */
+        margin-bottom: 0;
+        border-radius: 0;
+        /* Bez zaokrągleń na pełnym ekranie */
+        border: none;
+        /* Bez ramki */
+
+        padding: 80px 24px 40px;
+        /* Duży padding u góry, żeby nie zasłonić "X" i treści */
+        background: rgba(10, 10, 10, 0.95);
+        /* Ciemniejsze tło na mobile dla czytelności */
+        backdrop-filter: blur(20px);
+    }
+
+    /* WAŻNE: Na mobile panel musi być 'right: 0' a nie 'right: 50px' */
+    .reading-panel:target {
+        right: 0 !important;
+    }
+
+    .close-panel {
+        top: 20px;
+        right: 20px;
+        font-size: 36px;
+        padding: 15px;
+        /* Duże pole dotyku */
+    }
+
+    .panel-title {
+        font-size: 24px;
+        /* Mniejszy tytuł w panelu */
+        margin-bottom: 20px;
+    }
+
+    .panel-text,
+    .panel-list li {
+        font-size: 15px;
+        /* Czytelniejszy tekst */
+        text-align: left;
+        /* Justowanie na małym ekranie tworzy dziury w tekście */
+    }
+}

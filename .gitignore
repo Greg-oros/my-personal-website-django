@@ -22,3 +22,6 @@ ENV/
 # Inne
 .DS_Store
 .env
+*.pyc
+__pycache__
+db.sqlite3

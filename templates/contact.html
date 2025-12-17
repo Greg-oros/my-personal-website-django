@@ -1,12 +1,44 @@
 {% extends "base.html" %}
-{% block content %}
-<h1>Contact Me</h1>
+{% load static %}
 
-<form method="post">
-    {% csrf_token %}
-    {{ form }}
-    <div>
-        <button type="submit">Send</button>
+{% block content %}
+
+<div class="contact-wrapper">
+    <div class="contact-card">
+        
+
+        <form method="post">
+            {% csrf_token %}
+
+            <div class="field">
+                {{ form.email }}
+                
+            </div>
+
+            <div class="field">
+                {{ form.subject }}
+                
+            </div>
+
+            <div class="field">
+                {{ form.message }}
+                
+            </div>
+
+            <button type="submit">SEND</button>
+        </form>
+
+        {% if messages %}
+            {% for message in messages %}
+                <div style="margin-top:20px;text-align:center;color:white;opacity:0.9;font-size:15px;">
+                    {{ message }}
+                </div>
+            {% endfor %}
+        {% endif %}
     </div>
-</form>
+    
+        <div class="image-card">
+            <img src="{% static 'img/do_kontakt-modified.jpg' %}" alt="Podgląd obrazu">
+        </div>
+</div>
 {% endblock %}

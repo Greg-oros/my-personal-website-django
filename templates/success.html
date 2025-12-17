@@ -1,5 +1,41 @@
 {% extends "base.html" %}
+
 {% block content %}
-<h1>Message sent successfully!</h1>
-<p>I will get back to you shortly.</p>
+
+<style>
+    .success-wrapper {
+        /* Wyśrodkowanie */
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        min-height: 80vh; /* Zajmuje większość ekranu, uwzględniając navbar */
+        text-align: center;
+        
+        /* Twoja czcionka */
+        font-family: "Mona Sans", "Neue Montreal", "Inter", system-ui, sans-serif;
+        font-variation-settings: "wdth" 90, "wght" 200;
+        color: white; /* Zakładam biały tekst na czarnym tle */
+    }
+
+    .success-wrapper h1 {
+        font-size: 32px;
+        font-weight: 200;
+        margin-bottom: 16px;
+        letter-spacing: 1px;
+    }
+
+    .success-wrapper p {
+        font-size: 18px;
+        font-weight: 200;
+        color: rgba(255, 255, 255, 0.6); /* Lekko przygaszony kolor dla opisu */
+        margin: 0;
+    }
+</style>
+
+<div class="success-wrapper">
+    <h1>Message sent successfully!</h1>
+    <p>I will get back to you shortly.</p>
+</div>
+
 {% endblock %}

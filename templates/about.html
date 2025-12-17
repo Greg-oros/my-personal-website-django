@@ -1,7 +1,460 @@
-<!-- templates/about.html -->
 {% extends "base.html" %}
+{% load static %}
+
 {% block content %}
-<h1>My About Page</h1>
-<p>My address is {{ contact_address }} and the phone number is
-    {{ phone_number }}.</p>
-{% endblock %}
+<div class="about-wrapper">
+
+    <div class="cards-column">
+        
+        <div class="section">
+            <h2 class="section-title">ARTICLES</h2>
+            <div class="cards-container">
+                <a href="#article-innovation-panel" class="info-card card-link">
+                    <h3 class="card-title">A(I)rt, Renaissance and Creativity</h3>
+                    <p class="card-summary">A little-known story in art history tells how Salvador Dalí drew inspiration for his works. </p>
+                </a>
+                
+                <a href="#article-insights-panel" class="info-card card-link">
+                    <h3 class="card-title">Neurodiversity – innovation turbocharger</h3>
+                    <p class="card-summary">In this article, I review and briefly analyze the key findings presented in the work <em>"Neurodiversity as a Competitive Advantage"</em>.</p>
+                </a>
+                
+                <a href="#article-thought-panel" class="info-card card-link">
+                    <h3 class="card-title">Design Sprint: Startup design</h3>
+                    <p class="card-summary">Traditional project management methodologies often face challenges with decision inertia and inefficiency.</p>
+                </a>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">PROJECTS</h2>
+            <div class="cards-container">
+                <a href="#project-platforms-panel" class="info-card card-link">
+                    <h3 class="card-title">Habit Remediation System</h3>
+                    <p class="card-summary">The modern lifestyle is characterized by high stress levels, often leading to unhealthy coping mechanisms such as smoking, compulsive eating, or excessive social media use.</p>
+                </a>
+                <a href="#project-data-panel" class="info-card card-link">
+                    <h3 class="card-title">Long-Term Mental Well-being</h3>
+                    <p class="card-summary">In traditional psychotherapy and psychiatry, the most significant challenge is the lack of objective data.</p>
+                </a>
+                <a href="#project-design-panel" class="info-card card-link">
+                    <h3 class="card-title">Partner for Enterprise</h3>
+                    <p class="card-summary">In modern enterprise environments, employees (from Staff to Executives) suffer from "context switching."</p>
+                </a>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2 class="section-title">SOLUTIONS</h2>
+            <div class="cards-container">
+                <a href="#solution-consulting-panel" class="info-card card-link">
+                    <h3 class="card-title">Creation</h3>
+                    <p class="card-summary">Emphasizes problem-discovery, working with constraints, and forming testable hypotheses</p>
+                </a>
+                <a href="#solution-integration-panel" class="info-card card-link">
+                    <h3 class="card-title">Prototype</h3>
+                    <p class="card-summary">Prototyping highlights rapid iteration, learning through building, and disposable early versions</p>
+                </a>
+                <a href="#solution-optimization-panel" class="info-card card-link">
+                    <h3 class="card-title">Verification</h3>
+                    <p class="card-summary">Focuses on observing real behavior, continuous feedback loops, and measuring success by usability</p>
+                </a>
+            </div>
+        </div>
+        
+    </div> 
+    <div id="article-innovation-panel" class="reading-panel">
+        <a href="#" class="close-panel">&times;</a>
+        <div class="panel-content">
+            <h2 class="panel-title">A(I)rt, Renaissance and Creativity</h2>
+
+            <p class="panel-text">
+                A little-known story in art history tells how <strong>Salvador Dalí</strong> drew inspiration for his works. The renowned Catalan painter owed much to his ability to communicate with his subconscious: he used to start his work comfortably seated in a chair, holding a paint brush, with a tin palette on the floor directly beneath his hand.
+            </p>
+            <p class="panel-text">
+                He would force himself to doze off. When the first phase of sleep arrived, his fingers released the brush, which hit the palette, awakening the artist. Still with the dream scenes fresh in his mind, he immediately got to work.
+            </p>
+            <p class="panel-text">
+                In fact, this story could be the final straw for further considerations on whether machines will replace humans in the creation of artifacts. <strong>They won't—at least not for a long time.</strong> The human subconscious and dreams are currently a space completely inaccessible to algorithms.
+            </p>
+            <p class="panel-text">
+                Whether we consider creativity through the lens of the Renaissance, Baroque, contemporary art, or ancient architecture, humans have designed realities where creativity and intelligence were central. We know that human creativity often involves taking risks, making mistakes, and learning from failure. Can a machine devoid of emotion and experience capture such creativity?
+            </p>
+            <p class="panel-text">
+                Technological advances can replicate patterns, but can they truly create something deeply resonant from nothing? Machines are designed to minimize errors and optimize performance, which limits authentic exploration. The biggest argument against AI art is that it kills the <strong>"human element"</strong>—the artist's intent and life story.
+            </p>
+            <p class="panel-text">
+                Art generators based on AI (utilizing GANs, CNNs, and NST) have developed rapidly. However, artists have violently opposed the use of AI, as it poses a threat to their work and often uses human-created works without consent.
+            </p>
+            <p class="panel-text">
+                AI systems generate responses in a meaningless cocktail of diffusion and probability. The results appear creative, but they aren't, because <strong>creativity is born from meaning</strong>:
+            </p>
+            <ul class="panel-list">
+                <li>
+                    This means that having a clear sense of purpose, a strong belief, or a deeply felt emotion acts as a driving force. Without meaning, creative endeavors seem arbitrary.
+                </li>
+                <li>
+                    This means that when something is meaningful to a person, it strengthens the inner drive to explore and persevere, even in the face of challenges.
+                </li>
+                <li>
+                    This means that creativity born from purpose aims to connect with others. It's not just about creating for its own sake, but with a purpose that transcends the creator.
+                </li>
+            </ul>
+            <p class="panel-text">
+                <em>– But who cares? As long as the result gets the job done!</em>
+            </p>
+            <p class="panel-text">
+                When it comes to mechanical aspects of creativity—testing ideas or hyper-personalization—the question of meaning becomes irrelevant. This is work that probably should be done by a machine. However, in many industries, employees are overwhelmed by algorithmically generated content that simply isn't good enough.
+            </p>
+            <p class="panel-text">
+                The future is far more complex. We are deeply engaged in generative AI, but it will be the organic mind that generates breakthrough ideas. It is a <strong>Creative Renaissance</strong>.
+            </p>
+            <blockquote class="panel-quote">
+                "Creativity will be enhanced by machines, but it won't be replaced by them."
+                <footer>– David Raichman, Ogilvy Paris</footer>
+            </blockquote>
+            <hr class="divider">
+            <div class="sources-section">
+                <h3>Sources:</h3>
+                <ul>
+                    <li>Carroll, N. (2025). <em>Are we inventing ourselves out of our own usefulness? Striking a balance between creativity and AI.</em> AI & society, 40(1), 249-251.</li>
+                    <li>Dheenadhayalan, K. (2024, October). <em>AI Art Generators: Human Creativity Vs Artificial Intelligence.</em> In 2024 International Conference on Power, Energy (pp. 1-4). IEEE.</li>
+                    <li>Jia, N. (2024). <em>When and how artificial intelligence augments employee creativity.</em> Academy of Management Journal, 67(1), 5-32.</li>
+                    <li>Koseoglu, G. (2022). <em>Every Sherlock needs a Dr. Watson: A theory of creativity catalysts in organizations.</em> Journal of Organizational Behavior, 43(5), 840-857.</li>
+                    <li>Wu, N. (2024). <em>Impact of AI on Employee Creativity.</em> In 2024 4th International Conference on Computer Science and Blockchain (pp. 144-148). IEEE.</li>
+                    <li>Creativity, business, and society in the age of AI - <a href="https://www.ogilvy.com/" target="_blank">ogilvy.com</a> (date of access: 07.2025)</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+    <div id="article-insights-panel" class="reading-panel">
+        <a href="#" class="close-panel">&times;</a>
+        <div class="panel-content">
+            <h2 class="panel-title">Neurodiversity – innovation turbocharger</h2>
+            <p class="panel-text">
+                In this article, I review and briefly analyze the key findings presented in the work <em>"Neurodiversity as a Competitive Advantage"</em> by <strong>R. Austin and G. Pisano</strong>. This work is a fundamental source of knowledge on neurodiversity in the context of building a company's competitive advantage in markets for innovative solutions.
+            </p>
+            <p class="panel-text">
+                Based on its theses, I focus on the most important research results regarding the role of a diverse employee community on organizational innovativeness. The aim is to deepen knowledge and self-verify managerial competences for a neurodiverse workplace.
+            </p>
+            <p class="panel-text">
+                Neurodiversity means that people differ not only in terms of appearance, gender identity, origin, social class, or psycho-sexual identity, but also in terms of psychology. We think, experience emotions, see colors, smells, or interact with the world differently. In the organizational environment, it looks like this:
+            </p>
+            <ul class="panel-list">
+                <li>
+                    <strong>People with ADHD</strong> are associated with a lack of concentration or impulsiveness. At the same time, research shows that they can function effectively in dynamic conditions, are energetic, creative, and charismatic.
+                </li>
+                <li>
+                    <strong>People with dyslexia</strong> have difficulty reading and writing. On the other hand, they can often think visually, are creative, and have above-average spatial orientation.
+                </li>
+                <li>
+                    <strong>People on the autism spectrum</strong> are associated with challenges in establishing social relationships. At the same time, they are characterized by the ability to concentrate for long periods of time, great memory, and the ability to think analytically.
+                </li>
+            </ul>
+            <p class="panel-text">
+                Recent studies show that <strong>53% of Generation Z</strong> (born between 1997 and 2012) identify as neurodiverse. Many people with these disorders have above-average abilities; research shows that some conditions can give special skills in pattern recognition, memory, or math. However, they often have difficulty fitting into the profiles sought by potential employers.
+            </p>
+            <p class="panel-text">
+                Neurologically atypical people often require workplace accommodations, such as headphones, to prevent auditory overstimulation. In many cases, the accommodations are manageable, and the rewards are large. A growing number of prominent companies have overhauled their HR processes to access neurodivergent talent, including <strong>SAP, Hewlett Packard Enterprise (HPE), Microsoft, Willis Towers Watson, and Ford</strong>. Many others, like Dell Technologies, Deloitte, IBM, and JPMorgan Chase, are pursuing startup or exploratory programs.
+            </p>
+            <blockquote class="panel-quote">
+                "Neurodiversity is the idea that neurological differences, such as autism and ADHD, are the result of normal, natural variation in the human genome. (...) Indeed, many people who embrace the concept of neurodiversity believe that people with differences do not need to be cured; instead, they need help and accommodations."
+                <footer>– John Elder Robison, Co-chair of the Neurodiversity Working Group at the College of William & Mary</footer>
+            </blockquote>
+            <p class="panel-text">
+                Because neurodivergent people are wired differently, they can bring new perspectives. At <strong>HP Enterprise</strong>, neurodiverse software testers observed that one client’s projects always seemed to go into crisis mode before going live. Intolerant of disorder, they vehemently challenged the acceptance of chaos. This led the client to realize they had become too tolerant of crises and successfully redesigned their go-to-market process.
+            </p>
+            <p class="panel-text">
+                Innovation requires companies to add diversity to the mix. <strong>SAP</strong> notes that having people who see things differently "helps balance out our tendency as a large company to look in the same direction." However, traditional recruiting practices—job descriptions and hiring checklists—often filter out neurodiverse talent.
+            </p>
+            <p class="panel-text">
+                Understanding neurodiversity is a key factor for success. Leaders who appreciate it open their organizations to increased innovation, creativity, and better financial results. When talking about neurodiversity in a business context, the concept of <strong>ESG</strong> cannot be ignored. The social responsibility of companies is becoming an increasingly important factor that investors take into account when making decisions.
+            </p>
+            <hr class="divider">
+            <div class="sources-section">
+                <h3>Sources:</h3>
+                <ul>
+                    <li>Austin, R. D., & Pisano, G. P. (2017). <em>Neurodiversity as a competitive advantage.</em> Harvard Business Review, 95(3), 96-103.</li>
+                    <li>Honeybourne, V. (2019). <em>The neurodiverse workplace: An employer's guide to managing and working with neurodivergent employees, clients and customers.</em> Jessica Kingsley Publishers.</li>
+                    <li>Liebel, G., Langlois, N., & Gama, K. (2024, April). <em>Challenges, Strengths, and Strategies of Software Engineers with ADHD: A Case Study.</em> In Proceedings of the 46th International Conference on Software Engineering (pp. 57-68).</li>
+                    <li>Walkowiak, E. (2021). <em>Neurodiversity of the workforce and digital transformation: The case of inclusion of autistic workers at the workplace.</em> Technological Forecasting and Social Change, 168, 120739.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div id="article-thought-panel" class="reading-panel">
+        <a href="#" class="close-panel">&times;</a>
+        <div class="panel-content">
+            <h2 class="panel-title">Design Sprint: Startup design</h2>
+
+            <p class="panel-text">
+                Traditional project management methodologies often face challenges with decision inertia and inefficiency. The <strong>Design Sprint methodology</strong>, originally developed by Google Ventures, addresses these issues by condensing the solution development process into an intensive, five-day, five-step process.
+            </p>
+            <p class="panel-text">
+                In this article, I present an application of the Design Sprint methodology, exploring its benefits and challenges. Through case studies, I show how the Design Sprint can accelerate innovation, improve team collaboration, and improve the alignment of R&D requirements with market needs.
+            </p>
+            <p class="panel-text">
+                Design Sprint was developed by <strong>Jake Knapp at Google Ventures</strong> to help companies quickly test ideas, build prototypes, and validate solutions with real users. The method is highly structured and designed to be completed in five stages—five days at most:
+            </p>
+            <ul class="panel-list">
+                <li><strong>1. Understand</strong> – The team defines the problem and challenges; gathers expert input.</li>
+                <li><strong>2. Sketch</strong> – Team members individually bounce ideas off each other and sketch potential solutions.</li>
+                <li><strong>3. Decide</strong> – The team reviews solutions and decides on the best approach.</li>
+                <li><strong>4. Prototype</strong> – Built based on the chosen solution.</li>
+                <li><strong>5. Validate</strong> – The prototype is tested with real users, gaining valuable feedback for further iterations.</li>
+            </ul>
+            <p class="panel-text">
+                The method focuses on rapid iteration, cross-functional collaboration, and testing with real users early in the development process, making it ideal for environments that require speed and agility.
+            </p>
+            <p class="panel-text">
+                Using the Design Sprint methodology in project management can significantly reduce the time it takes to test and validate ideas. Adopting this approach brings several key benefits:
+            </p>
+            <ul class="panel-list">
+                <li>
+                    <strong>Speeding up the innovation process:</strong> The framework compresses months of work into five days. This speeds up product development and allows teams to eliminate weak ideas early.
+                </li>
+                <li>
+                    <strong>Improved cross-functional collaboration:</strong> The structured nature encourages collaboration between different groups, fostering a shared understanding of goals. In innovation environments where knowledge is siloed, this helps break down barriers.
+                </li>
+                <li>
+                    <strong>User-centric innovation:</strong> By testing with real users, efforts are aligned with market needs. Early feedback minimizes the risk of developing products that don’t meet customer expectations.
+                </li>
+                <li>
+                    <strong>Risk reduction:</strong> Rapid prototyping allows teams to validate assumptions early. This is especially important in technically complex environments where mistakes are expensive.
+                </li>
+            </ul>
+            <p class="panel-text">
+                <strong>Challenges of Implementing the Design Sprint:</strong>
+            </p>
+            <ul class="panel-list">
+                <li>
+                    <strong>Adapting to Complex Problems:</strong> Projects requiring deep scientific knowledge may be difficult to resolve in five days. In such cases, the methodology may need to be modified.
+                </li>
+                <li>
+                    <strong>Cultural Resistance:</strong> Teams accustomed to traditional workflows may resist the rapid pace. Strong leadership is required to define the sprint’s value.
+                </li>
+                <li>
+                    <strong>Resource Allocation:</strong> The intensity of the sprint requires dedicated resources (time and human) for the entire five-day process.
+                </li>
+            </ul>
+            <p class="panel-text">
+                <strong>Case Studies:</strong>
+            </p>
+            <p class="panel-text">
+                <em>Energy Sector:</em> The method was used to create innovative services raising energy awareness. The application of Design Sprint promoted the co-creation of open innovation scenarios.
+            </p>
+            <p class="panel-text">
+                <em>Agriculture (Indonesia):</em> The method was used to create an app solving problems in the agricultural sector. Research showed that Design Sprint is effective in the early stages of system design.
+            </p>
+            <p class="panel-text">
+                <em>ACD Applications:</em> Designing Activity-Centered Design applications using Design Sprint. Usability tests confirmed that the project achieved its goals regarding effectiveness and efficiency.
+            </p>
+            <p class="panel-text">
+                <strong>When is the best time to use a Design Sprint?</strong>
+            </p>
+            <ul class="panel-list">
+                <li>The problem is so large that the potential solution would cost a lot of money.</li>
+                <li>The deadline for the finished solution is so close that there is no time for additional analysis.</li>
+                <li>We are in the middle of the project and need a new perspective.</li>
+            </ul>
+            <p class="panel-text">
+                The Design Sprint methodology offers a powerful tool to accelerate innovation, improve cross-team collaboration, and reduce risk. By implementing a Design Sprint, an organization can deliver innovative products in a fraction of the time.
+            </p>
+            <hr class="divider">
+            <div class="sources-section">
+                <h3>Bibliography:</h3>
+                <ul>
+                    <li>Mendonça de Sá Araújo, C. M., et al. (2019). <em>Design thinking versus design sprint: A comparative study.</em> Springer.</li>
+                    <li>Figueiredo, L. B., & Fleury, A. L. (2019). <em>Design sprint versus design thinking: a comparative analysis.</em> Gepros, 14(5), 23.</li>
+                    <li>Knapp, J., Zeratsky, J., & Kowitz, B. (2016). <em>Sprint: How to Solve Big Problems and Test New Ideas in Just Five Days.</em> Simon & Schuster.</li>
+                    <li>Banfield, R., Lombardo, C. T., & Wax, T. (2015). <em>Design Sprint: A Practical Guidebook for Building Great Digital Products.</em> O'Reilly Media.</li>
+                    <li>Tucker, S. M., Boyle, F., Walsh, J., Trant, N., & Moolman, J. (2021). <em>Training programme development using design sprint methodology.</em> In EDULEARN21 Proceedings.</li>
+                    <li>Winfield, K., Sizer, N., & Siena, F. (2022). <em>Design sprint methodologies transformed in a digital environment.</em> The Design Society.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+
+    <div id="project-platforms-panel" class="reading-panel">
+    <a href="#" class="close-panel">&times;</a>
+    <div class="panel-content">
+        <h2 class="panel-title">Wearable Emotion AI: Behavioral Intervention & Habit Remediation System</h2>
+
+        <p class="panel-text">
+            <strong>The Challenge:</strong> The modern lifestyle is characterized by high stress levels, often leading to unhealthy coping mechanisms such as smoking, compulsive eating, or excessive social media use. Existing solutions (pharmacology, traditional therapy) often act post-factum or rely heavily on the user's willpower. There is a distinct lack of tools that intervene at the "critical moment"—right before the unwanted behavior occurs.
+        </p>
+
+        <p class="panel-text">
+            <strong>The Solution:</strong> I developed a concept for a smartwatch-based system that acts as a real-time personal behavioral coach. The system integrates biometric analysis with environmental context to not only detect stress levels but actively support the user in changing habits and identifying root causes.
+        </p>
+
+        <p class="panel-text">
+            This solution shifts the burden of fighting addiction from "willpower" to <strong>"technological support,"</strong> offering a healthier and safer alternative to e-cigarettes or medication.
+        </p>
+
+        <p class="panel-text">
+            <strong>Key Features & Capabilities:</strong>
+        </p>
+        <ul class="panel-list">
+            <li>
+                <strong>Predictive Detection (Sensing):</strong> Utilizing sensors (heart rate, temperature, GSR, gyroscope) and location history to detect physiological patterns preceding an unhealthy impulse (e.g., nicotine craving or rising anger).
+            </li>
+            <li>
+                <strong>Real-Time Interventions:</strong> The system automatically triggers personalized actions at the critical moment—ranging from deep breathing suggestions and mindfulness to micro-movement instructions and temporarily silencing phone notifications to reduce stimuli.
+            </li>
+            <li>
+                <strong>Root Cause Analysis:</strong> After the intervention, the system guides the user through a brief reflection process (AI-assisted journaling) to help understand the true trigger (e.g., "Is it nicotine craving, or stress from the upcoming meeting?").
+            </li>
+            <li>
+                <strong>Social & Relational Support:</strong> Features for relationship coaching (detecting tension before an argument) and notifying loved ones in crisis situations (e.g., panic attacks).
+            </li>
+        </ul>
+
+        <p class="panel-text">
+            <strong>Business & Market Impact.</strong> The project addresses the needs of the growing wearables market (14.4% of the global population, 25% in the US). It is a pioneering solution combining personalized physical health monitoring with deep emotional analysis for behavior modification. It offers high user retention potential through a subscription model and adaptability for B2B corporate wellness programs and health insurers.
+        </p>
+    </div>
+</div>
+
+    <div id="project-data-panel" class="reading-panel">
+    <a href="#" class="close-panel">&times;</a>
+    <div class="panel-content">
+        <h2 class="panel-title">Emotional Portable Monitor: AI System for Long-Term Mental Well-being Monitoring</h2>
+
+        <p class="panel-text">
+            <strong>The Challenge:</strong> In traditional psychotherapy and psychiatry, the most significant challenge is the lack of objective data. Diagnosis and treatment rely heavily on what the patient remembers and reports during visits. However, human memory is fallible and selective—patients often unconsciously distort the perception of their emotional state, making it difficult to tailor appropriate therapy and detect crises early.
+        </p>
+
+        <p class="panel-text">
+            <strong>The Solution: </strong> I designed the concept of the "Emotional Holter"—a system analogous to a cardiac ECG Holter, but dedicated to mental health. It is a solution utilizing advanced Deep Learning algorithms for continuous, discreet monitoring of the user's emotional state over a period of 2–4 weeks.
+        </p>
+        <p class="panel-text">
+            The system analyzes multimodal data (voice, image, text, biometric parameters) to create an objective picture of the patient's mental condition in their natural environment.
+        </p>
+
+        <p class="panel-text">
+            <strong>Key Features & Capabilities:</strong>
+        </p>
+        <ul class="panel-list">
+            <li>
+                <strong>Objectification of Emotional State:</strong> The system records emotions in real-time, creating a "mood map." This allows for confronting the patient's subjective perception ("The whole week was bad") with hard data ("Records show mood improvement during morning hours").
+            </li>
+            <li>
+                <strong>Predictive & Diagnostic Analysis:</strong> By comparing user data with a vast database of disease patterns, the AI supports the early detection of disorders such as depression or Bipolar Disorder.
+            </li>
+            <li>
+                <strong>"Red Alert" Function (Crisis Intervention):</strong> In situations of extreme stress or detected risk of self-harm, the system can automatically notify a therapist or a designated trusted contact.
+            </li>
+            <li>
+                <strong>Digital Therapeutics Support:</strong> Integration with VR/AR systems to deliver immediate, ad-hoc stress-reducing interventions based on real-time emotion readings.
+            </li>
+        </ul>
+
+        <p class="panel-text">
+            <strong>Business & Social Impact.</strong> The project aligns with the rapidly growing Emotion AI market (estimated 21.7% year-over-year growth). The Emotional Holter promotes the paradigm of <strong>Data-Driven Psychotherapy</strong>, shifting treatment from the realm of intuition to precision medicine. This solution not only supports the treatment process but also builds patient self-awareness, empowering them with tools to better understand their own psyche.
+        </p>
+    </div>
+</div>
+
+    <div id="project-design-panel" class="reading-panel">
+    <a href="#" class="close-panel">&times;</a>
+    <div class="panel-content">
+        <h2 class="panel-title">The AI-Powered "Partner" for Enterprise Workflows</h2>
+
+        <p class="panel-text">
+            <strong>The Challenge:</strong> In modern enterprise environments, employees (from Staff to Executives) suffer from "context switching." Information is siloed across emails, local drives, calendars, and chat apps. Users waste significant cognitive load acting as the bridge between these tools—manually searching for a file in one app, cross-referencing a sender in another, and opening a calendar to schedule a follow-up.
+        </p>
+
+        <p class="panel-text">
+            <strong>The Solution:</strong> "Partner" is not just a search engine; it is a Knowledge Graph-based Work Assistant. Designed to act as a proactive "Practical Partner," "Partner" connects the entire workflow from information retrieval to task execution.
+        </p>
+        <p class="panel-text">
+            By mapping the relationships between People, Files, Time, and Tasks, "Partner" transforms static data into actionable insights.
+        </p>
+
+        <p class="panel-text">
+            <strong>Key Features & Capabilities:</strong>
+        </p>
+        <ul class="panel-list">
+            <li>
+                <strong>Semantic Contextual Search:</strong> Solves the "I don't know the filename" problem. "Partner" allows users to find documents based on vague descriptions, related people, or specific projects, retrieving not just the file but the email context and history surrounding it.
+            </li>
+            <li>
+                <strong>Actionable Intelligence:</strong> "Partner" closes the loop on productivity. Users can move from viewing a document to "Schedule a meeting with the authors" in a single command. The system automatically identifies relevant stakeholders and finds open calendar slots.
+            </li>
+            <li>
+                <strong>Persona-Adaptive UX:</strong> The system recognizes the user's role. For <strong>Staff</strong>, it focuses on document gathering and reporting efficiency. For <strong>Researchers</strong>, it prioritizes technical requirements and defect tracking history. For <strong>Executives</strong>, it delivers high-level summaries and decision-critical data.
+            </li>
+            <li>
+                <strong>Proactive Assistance:</strong> Instead of waiting for prompts, "Partner" anticipates needs—extracting requirements from upcoming calendar invites and generating "To-Do" lists based on recent communications.
+            </li>
+        </ul>
+
+        <p class="panel-text">
+            <strong>The Impact.</strong> "Partner" shifts the user paradigm from <em>Search → Retrieve</em> to <em>Intent → Action</em>. By automating the connections between disparate office tasks, the solution significantly reduces the time spent on administrative overhead, allowing employees to focus on high-value creative and strategic work.
+        </p>
+    </div>
+</div>
+
+
+    <div id="solution-consulting-panel" class="reading-panel">
+    <a href="#" class="close-panel">&times;</a>
+    <div class="panel-content">
+        <h2 class="panel-title">Ideation</h2>
+
+        <p class="panel-text">
+            Every great software project begins with a question worth answering. During ideation, I focus on <strong>understanding the core problem</strong> before jumping to solutions. This phase is about curiosity and exploration—talking to potential users, observing pain points, and identifying opportunities where technology can make a meaningful difference.
+        </p>
+
+        <p class="panel-text">
+            I believe the best ideas <strong>emerge from constraint</strong>. Rather than chasing feature-complete visions, I look for the simplest intervention that could create value. What's the smallest thing we could build that would actually matter to someone? This approach helps filter promising concepts from wishful thinking and sets a clear direction for what comes next.
+        </p>
+
+        <p class="panel-text">
+            The ideation phase concludes when there's a <strong>shared conviction</strong> about the problem we're solving and a hypothesis we're ready to test. It's not about having all the answers—it's about having the <strong>right questions</strong> and the courage to pursue them.
+        </p>
+    </div>
+</div>
+
+   <div id="solution-integration-panel" class="reading-panel">
+    <a href="#" class="close-panel">&times;</a>
+    <div class="panel-content">
+        <h2 class="panel-title">Prototyping</h2>
+
+        <p class="panel-text">
+            Prototyping is where ideas take their first breath. I approach this phase as a <strong>conversation between vision and reality</strong>, building just enough to learn what we don't know yet. The goal isn't perfection—it's clarity. A prototype might be a clickable mockup, a working feature, or even a paper sketch, depending on what question we're trying to answer.
+        </p>
+
+        <p class="panel-text">
+            I prioritize <strong>speed and iteration over polish</strong>. Early prototypes are disposable by design, meant to fail fast and teach us something valuable. Can users understand the core interaction? Does the technical approach actually work? Are we solving the problem we think we're solving? Each prototype version answers specific questions and raises new ones.
+        </p>
+
+        <p class="panel-text">
+            What matters most is staying close to the <strong>feedback loop</strong>. I test prototypes early and often, treating each session as an opportunity to refine not just the design, but our understanding of what we're truly building. By the end of prototyping, we have something tangible that embodies our best current thinking—and we're ready to put it in front of real users.
+        </p>
+    </div>
+</div>
+
+    <div id="solution-optimization-panel" class="reading-panel">
+    <a href="#" class="close-panel">&times;</a>
+    <div class="panel-content">
+        <h2 class="panel-title">User Verification</h2>
+
+        <p class="panel-text">
+            User verification is where <strong>assumptions meet reality</strong>. This is the phase where I step back and let users speak for themselves—not through surveys or focus groups, but through actual interaction with the product. I watch how they navigate, where they stumble, what delights them, and what frustrates them. Their behavior tells the truth that polite feedback sometimes obscures.
+        </p>
+
+        <p class="panel-text">
+            I structure verification around <strong>real scenarios and meaningful tasks</strong>, creating conditions where users can engage with the software as they would naturally. The insights come from the margins—the unexpected workarounds, the features they ignore, the questions they ask that reveal gaps in our thinking. I take notes, ask follow-up questions, and resist the urge to defend design decisions.
+        </p>
+
+        <p class="panel-text">
+            Verification isn't a one-time checkpoint. It's a <strong>practice woven throughout development</strong>, becoming more refined as the product matures. Each round of feedback loops back into iteration, helping us move closer to software that doesn't just function well, but fits naturally into people's lives. Success is measured not by how clever our solution is, but by <strong>how invisible it becomes</strong> in the hands of those who use it.
+        </p>
+    </div>
+</div>
+
+</div> {% endblock %}

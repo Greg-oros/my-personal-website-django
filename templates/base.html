@@ -1,13 +1,40 @@
-
 {% load static %}
+
+
 
 <header>
     <link rel="stylesheet" href="{% static 'css/base.css' %}">
     <link rel="stylesheet" href="{% static 'css/gravity.css' %}">
-    <a href="{% url 'home' %}">Home</a> |
-    <a href="{% url 'about' %}">About</a>
-    <a href="{% url 'contact' %}">Contact</a>
+    <link rel="stylesheet" href="{% static 'css/navigation.css' %}">
+    <link rel="stylesheet" href="{% static 'css/about.css' %}">
+    <link rel="stylesheet" href="{% static 'css/contact.css' %}">
+
+    <nav class="modern-nav">
+        <div class="nav-container">
+            <ul class="nav-links">
+                <li>
+                    <a href="{% url 'home' %}"
+                       class="{% if request.resolver_match.url_name == 'home' %}active{% endif %}">
+                        Home
+                    </a>
+                </li>
+                <li>
+                    <a href="{% url 'about' %}"
+                       class="{% if request.resolver_match.url_name == 'about' %}active{% endif %}">
+                        About
+                    </a>
+                </li>
+                <li>
+                    <a href="{% url 'contact' %}"
+                       class="{% if request.resolver_match.url_name == 'contact' %}active{% endif %}">
+                        Contact
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
 </header>
+
 
 <body>
     <!-- 50 migoczących gwiazd (z losowymi pozycjami i opóźnieniem) -->
@@ -31,7 +58,7 @@
     <div class="star" style="top: 62%; left: 14%; animation-delay: 0.6s;"></div>
     <div class="star" style="top: 13%; left: 25%; animation-delay: 0.4s;"></div>
     <div class="star" style="top: 45%; left: 51%; animation-delay: 1.7s;"></div>
-    <div class="star" style="top: 76%; left: 37%; animation-delay: 0.5s;"></div> <!-- poprawione z 776% -->
+    <div class="star" style="top: 76%; left: 37%; animation-delay: 0.5s;"></div>
     <div class="star" style="top: 2%; left: 22%; animation-delay: 0.2s;"></div>
     <div class="star" style="top: 33%; left: 55%; animation-delay: 1.3s;"></div>
     <div class="star" style="top: 81%; left: 38%; animation-delay: 0.5s;"></div>
@@ -114,4 +141,3 @@
 
 
 {% block content %}{% endblock %}
-

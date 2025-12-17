@@ -1,14 +1,90 @@
-<!-- templates/home.html -->
 {% extends "base.html" %}
+{% load static %}
+
 {% block content %}
-<h1>My Homepage</h1>
-<p>The current date and time is: {% now "DATETIME_FORMAT" %}</p>
-<p>There are {{ inventory_list|length }} items of inventory.
-<ul>
-    {% for item in inventory_list %}
-    <li>{{ item }}</li>
-    {% endfor %}
-</ul>
-<p>{{ greeting| title }}</p>
-{% comment %}Add more content here!{% endcomment %}
+<style>
+    html, body {
+        height: auto;
+        margin: 0;
+    }
+
+    .contact-wrapper {
+        min-height: auto;         /* nie wymuszamy wysokości ekranu */
+        display: flex;
+        justify-content: flex-start;   /* lewa strona */
+        align-items: flex-start;
+        padding: 40px 5% 80px;    /* dodatkowy dół – zapas pod pasek Windows */
+        box-sizing: border-box;
+    }
+
+    .contact-card {
+        width: 100%;
+        max-width: 600px;
+        padding: 20px 24px 28px; 
+        background: rgba(0, 0, 0, 0.01);
+        backdrop-filter: blur(3px);
+        -webkit-backdrop-filter: blur(3px);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 20px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+        box-sizing: border-box;
+    }
+
+    h1 {
+        font-size: 18px;  /* zmniejszone */
+        font-weight: 200;
+        color: white;
+        letter-spacing: 1px;
+        margin-bottom: 6px;
+        font-family: "Mona Sans", "Neue Montreal", "Inter", system-ui, sans-serif;
+    }
+
+    .subtitle {
+        color: rgba(255,255,255,0.5);
+        font-size: 14px; /* zmniejszone */
+        margin-bottom: 22px;
+        font-family: "Mona Sans", "Neue Montreal", "Inter", system-ui, sans-serif;
+    }
+
+    .about-text {
+        color: rgba(255,255,255,0.85);
+        font-size: 14px;  /* zmniejszone */
+        line-height: 1.55;
+        font-family: "Mona Sans", "Neue Montreal", "Inter", system-ui, sans-serif;
+    }
+
+    .signature {
+        display: block;
+        text-align: right;
+        margin-top: 8px;
+    }
+
+    @media (max-width: 640px) {
+        .contact-wrapper {
+            padding: 30px 20px 80px;
+        }
+    }
+</style>
+
+<div class="contact-wrapper">
+    <div class="contact-card">
+        <h1>"Brainstorm means to using brain to storm a creative problem-and do so in commando fashion, with each stormer attacking the same objective."</h1>
+        <p class="subtitle"> - Alex Osborn in his book: "Creative power" page 265, publication: Charles Scribner's Sons, New York, 1948</p>
+
+        <p class="about-text">
+            I'm a project leader and creative facilitator working at the intersection of innovation and technology in high-tech organizations.<br><br>
+           
+            With over 150 ideation and brainstorming sessions under my belt, I've collaborated with engineers and developers across AI, IoT, Platforms, Mobile, and TV Solutions to create and implement innovative products, processes and services.<br><br>
+
+            As an expert and jury member for innovation programs and competitions, I help shape the next generation of talent—from high school students to university innovators.<br><br>
+
+            Beyond work, you'll find me navigating the open waters as a licensed sailing skipper, living plant-based, and playing the trumpet.<br><br>
+
+            <span class="signature">
+                Let's create something innovative together.<br>
+                Grzegorz Olczyk
+            </span>
+        </p>
+    </div>
+</div>
 {% endblock %}
